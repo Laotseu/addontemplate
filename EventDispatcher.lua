@@ -1,8 +1,11 @@
 
 local myname, ns = ...
+local _G = getfenv(0)
+
+local select = _G.select
 
 
-local f = CreateFrame("frame")
+local f = _G.CreateFrame("frame")
 f:SetScript("OnEvent", function(self, event, ...) if ns[event] then return ns[event](ns, event, ...) end end)
 
 

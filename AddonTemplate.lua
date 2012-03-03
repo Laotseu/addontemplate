@@ -1,5 +1,8 @@
 
 local myname, ns = ...
+local _G = getfenv(0)
+
+local err = ns.err
 
 
 ns:RegisterEvent("ADDON_LOADED")
@@ -9,7 +12,7 @@ function ns:ADDON_LOADED(event, addon)
 
 	-- Do anything you need to do after addon has loaded
 
-	LibStub("tekKonfig-AboutPanel").new(myfullname, myname) -- Make first arg nil if no parent config panel
+	_G.LibStub("tekKonfig-AboutPanel").new(myfullname, myname) -- Make first arg nil if no parent config panel
 
 	self:UnregisterEvent("ADDON_LOADED")
 	self.ADDON_LOADED = nil
