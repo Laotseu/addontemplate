@@ -17,11 +17,12 @@ function ns:ADDON_LOADED(event, addon)
 	self:UnregisterEvent("ADDON_LOADED")
 	self.ADDON_LOADED = nil
 
-	if IsLoggedIn() then self:PLAYER_LOGIN() else self:RegisterEvent("PLAYER_LOGIN") end
+	if _G.IsLoggedIn() then self:PLAYER_LOGIN() else self:RegisterEvent("PLAYER_LOGIN") end
 end
 
 
 function ns:PLAYER_LOGIN()
+	self:setDefaultChanelForPrint()
 	self:RegisterEvent("PLAYER_LOGOUT")
 
 	-- Do anything you need to do after the player has entered the world
